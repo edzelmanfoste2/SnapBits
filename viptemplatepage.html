@@ -85,50 +85,62 @@
     }
 
     .frame2 {
-      width: 200px; 
+      width: 250px; 
+      height: 370px;
       cursor: pointer;
     }
 
     .frame3 {
-      width: 250px; 
-      height: 450px;
+      width: 230px; 
+      height: 370px;
       cursor: pointer;
     }
+    button {
+    border-radius: 20px;
+    padding: 15px;
+    height: auto;
+    width: 180px;
+    font-family: century gothic;
+    font-weight: bold;
+    background-color: #f0ccff;
+    border-color: black;
+}
   </style>
 </head>
 <body>
 
 
-  <div class="top">
+<div class="top">
     <div class="header">
-      <div class="Logo">
-        <img src="Logo.png" class="logo" alt="Logo">
-        <p class="headText">SnapBits!</p>
-      </div>
-      <ul>
-        <li><a href="viploginpage.html">Log-in/Sign-Up</a></li>
-      </ul>
+        <div class="Logo">
+<img src="../Images/Logo.png" class="logo" alt="Logo">
+            <p class="headText">SnapBits!</p>
+        </div>
+        <div class="vip">
+<button onclick="window.location.href='/snapbits/welcome.html'" class="logout">Log Out</button>
+        </div>
     </div>
-  </div>
+</div>
 
 
-  <h2>Select a Frame and a Photo Count you want</h2>
+<h2>Select a Frame and a Photo Count you want</h2>
 
-  <div class="top-row">
-    <a href="main.html">
-      <img src="Frame1.png" alt="Go to Next Page" class="frame1">
-    </a>
+<div class="top-row">
+  <a href="../vip_template_camera_border_final/frame1camera/cameraframe1.html">
+    <img src="/snapbits/Images/Frame1.png" alt="Frame 1" class="frame1">
+  </a>
 
-    <a href="main.html">
-      <img src="VIP2.png" alt="Go to Next Page" class="frame2">
-    </a>
-  </div>
+  <a href="../vip_template_camera_border_final/frame2camera/cameraframe2.html">
+    <img src="/snapbits/Images/VIP2.png" alt="Frame 2" class="frame2">
+  </a>
+</div>
 
-  <div class="bottom-row">
-    <a href="main.html">
-      <img src="VIP_3.png" alt="Go to Next Page" class="frame3">
-    </a>
-  </div>
+<div class="bottom-row">
+  <a href="../vip_template_camera_border_final/frame3camera/cameraframe3.html">
+    <img src="/snapbits/Images/VIP_3.png" alt="Frame 3" class="frame3">
+  </a>
+</div>
+
 
 </body>
 </html>
