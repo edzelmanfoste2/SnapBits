@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 1: Capture Photos</title>
+  <link rel="stylesheet" href="cameraframe2.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-title">SnapBits PhotoBooth</h1>
+    <img src="Images/Logo.png" alt="Logo" class="logo">
+  </header>
+
+  <div class="mode-selector">
+    <label>
+      <input type="radio" name="mode" value="normal" checked> Normal Camera
+    </label>
+    <label>
+      <input type="radio" name="mode" value="ai"> AI Background
+    </label>
+  </div>
+
+  <div id="colorPickerContainer" style="display: none;">
+    <label for="bgColorPicker">Choose Background Color: </label>
+    <input type="color" id="bgColorPicker" value="#66ccff">
+  </div>
+
+  <div id="cameraContainer">
+    <canvas id="aiCanvas" style="display:none;"></canvas>
+    <video id="video" autoplay playsinline></video>
+  </div>
+
+  <div id="countdown"></div>
+  <button id="captureBtn">Start Capture</button>
+
+  <div class="preview-container" id="previewContainer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0"></script>
+  <script src="cameraframe2.js"></script>
+</body>
+</html>

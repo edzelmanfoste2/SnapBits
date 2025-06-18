@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Step 2: Edit Frame</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      margin-top: 20px;
+      border: 2px solid #000;
+    }
+
+    #colorPicker {
+      margin-top: 20px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Step 2: Customize Your Frame</h2>
+<label>Select Frame Color: </label>
+<input type="color" id="colorPicker" value="#7f5ca2">
+<br>
+<canvas id="canvas" width="300" height="600"></canvas>
+<br>
+<button id="nextBtn">Next</button>
+
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const colorPicker = document.getElementById('colorPicker');
+
+  const photos = JSON.parse(localStorage.getItem('capturedPhotos'));
+
+  if (!photos || photos.length !== 3) {
+    alert("No photos found. Please take photos first.");
+    window.location.href = "cameraframe2.html"; // dito ilalagay ang camera page
+  }
+
+  function drawFrame(color) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const slotPositions = [
+      { x: 25, y: 30 },
+      { x: 25, y: 220 },
+      { x: 25, y: 410 }
+    ];
+
+    for (let i = 0; i < 3; i++) {
+      const img = new Image();
+      img.onload = () => {
+       
+        ctx.fillStyle = "#e6faff";
+        ctx.fillRect(slotPositions[i].x, slotPositions[i].y, 250, 150);
+        ctx.drawImage(img, slotPositions[i].x, slotPositions[i].y, 250, 150);
+        ctx.strokeRect(slotPositions[i].x, slotPositions[i].y, 250, 150);
+
+      
+        ctx.font = "14px Arial";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+        ctx.textAlign = "right";
+        ctx.fillText("© SnapBits", slotPositions[i].x + 240, slotPositions[i].y + 140);
+      };
+      img.src = photos[i];
+    }
+  }
+
+  colorPicker.addEventListener('input', () => {
+    drawFrame(colorPicker.value);
+  });
+
+
+  drawFrame(colorPicker.value);
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+  // Convert canvas to Data URL
+  const imageData = canvas.toDataURL("image/png");
+
+  // Save it in localStorage
+  localStorage.setItem('finalFramedPhoto', imageData);
+
+  // Redirect to final page
+  window.location.href = '../vipfinalpage.html';
+});
+
+</script>
+
+</body>
+</html>
