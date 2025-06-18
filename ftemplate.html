@@ -4,31 +4,31 @@
   <title>Frame Selection</title>
   <style>
  
-    .header {
-      display: flex;
-      padding: 20px;
-      padding-bottom: 25px;
-      height: 40px;
-      margin: 0;
-      background-color: #3d2f6d;
-      justify-content: space-between;
-    }
+.header {
+    display: flex;
+    padding: 20px;
+    padding-bottom: 25px;
+    height: 40px;
+    margin: 0;
+    background-color: #3d2f6d;
+    justify-content: space-between;
+    
+}
 
-    .Logo {
-      height: 50px;
-      width: 60px;
-      margin-right: 20px;
-      margin-left: 20px;
-      display: flex;
-      align-items: center;
-    }
+.Logo {
+    height: 50px;
+    width: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+}
 
-    .logo {
-      height: 50px;
-      width: auto;
-      margin-right: 20px;
-      margin-left: 20px;
-    }
+.logo {
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
 
     ul {
       font-family: century gothic;
@@ -79,19 +79,22 @@
     }
 
     .frame1 {
-      width: 250px;
-      cursor: pointer;
+        width: 250px;
+        cursor: pointer;
+        height: 400px;
+
     }
 
     .frame2 {
-      width: 200px;
-      cursor: pointer;
+        width: 250px;
+        cursor: pointer;
+        height: 400px;
     }
 
     .frame3 {
-      width: 250px; 
-      height: 450px;
+      width: 250px;
       cursor: pointer;
+      height: 400px;
     }
 
     .modal {
@@ -140,42 +143,48 @@
       background-color: #5f1aad;
       color: black;
     }
+    .vipicon {
+      height: 150px;
+      width: auto;
+      cursor: pointer;
+      margin-top: -50px;
+    }
   </style>
 </head>
 <body>
 
 
-  <div class="top">
+<div class="top">
     <div class="header">
-      <div class="Logo">
-        <img src="Logo.png" class="logo" alt="Logo">
-        <p class="headText">SnapBits!</p>
-      </div>
-      <ul>
-        <li><a href="viploginpage.html">Log-in/Sign-Up</a></li>
-      </ul>
+        <div class="Logo">
+            <img src="../Images/Logo.png" img class="logo" alt="Logo">
+            <p class="headText">SnapBits!</p>
+        </div>
+        <div class="vip">
+            <img src="../Images/vipheader.png" class="vipicon" onclick="window.location.href='../vip_login_signup/payment/index.php'">
+        </div>
     </div>
-  </div>
+</div>
 
 
   <h2>Select a Frame and Photo Count you want</h2>
 
   <div class="top-row">
-    <a href="main.html">
-      <img src="Frame1.png" alt="Go to Next Page" class="frame1">
+    <a href="camerapage.php">
+      <img src="/snapbits/Images/Frame1.png" alt="Go to Next Page" class="frame1">
     </a>
 
-    <img src="F2.png" alt="VIP Access" class="frame2" onclick="showModal()">
+    <img src="/snapbits/Images/F2.png" alt="VIP Access" class="frame2" onclick="showModal()">
   </div>
 
   <div class="bottom-row">
-    <img src="Frame-3.png" alt="VIP Access" class="frame3" onclick="showModal()">
+    <img src="/snapbits/Images/Frame-3.png" alt="VIP Access" class="frame3" onclick="showModal()">
   </div>
 
   <div id="vipModal" class="modal">
     <div class="modal-content">
       <h3>You need to avail the VIP Pass to use this Frame </h3>
-      <button class="vip-btn" onclick="window.location.href='vip.html'">Avail VIP now</button>
+      <button class="vip-btn" onclick="window.location.href='../vip_login_signup/payment/index.php'">Avail VIP now</button>
       <button class="exit-btn" onclick="closeModal()">Exit</button>
     </div>
   </div>
