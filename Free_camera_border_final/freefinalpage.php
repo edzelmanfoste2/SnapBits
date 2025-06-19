@@ -83,7 +83,7 @@ h2 {
 <div class="top">
     <div class="header">
         <div class="Logo">
-            <img src="welcomePics/Logo.png" img class="logo" alt="Logo">
+            <img src="/SnapBits/welcomePics/Logo.png" img class="logo" alt="Logo">
             <p class="headText">SnapBits!</p>
         </div>
     </div>
@@ -126,7 +126,7 @@ const timeout = setInterval(() => {
     clearInterval(timeout);
     countDownTimer.textContent = "Your access is expired, thank you for trying SnapBits.";
     viewing.innerHTML = '';
-    window.location.href = "welcome.html";
+    //window.location.href = "SnapBits/welcome.html";
     }
 
     timeleft--;
