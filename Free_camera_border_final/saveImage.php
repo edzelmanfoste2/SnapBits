@@ -20,11 +20,12 @@ function encryptData($data, $cipher, $EncryptionKey) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
+    $imageName = $_FILES['image']['name'];
     $imageData = file_get_contents($_FILES['image']['tmp_name']);
     $encryptedImage = encryptData($imageData, $cipher, $EncryptionKey);
 
-    $stmt = $conn->prepare("INSERT INTO images (image) VALUES (?)");
-    $stmt->bind_param("s", $encryptedImage);
+    $stmt = $conn->prepare("INSERT INTO images (image, name) VALUES (?, ?)");
+    $stmt->bind_param("ss", $encryptedImage, $imageName);
 
     if ($stmt->execute()) {
         $_SESSION['timeCreated'] = time();
