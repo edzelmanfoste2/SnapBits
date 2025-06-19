@@ -119,3 +119,17 @@ button {
 .picture2 {
     margin-top: 60px;
 }
+
+.vip {
+  display: flex;
+  align-items: center;
+}
+
+.vipicon {
+  height: 150px;
+  width: auto;
+  cursor: pointer;
+  align-items: right;
+  margin-top: 10px;
+}
+

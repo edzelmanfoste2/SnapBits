@@ -77,6 +77,37 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    text-align: center;
+    font-family: century gothic;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+.container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+    border-radius: 20px;
+    padding: 15px;
+    height: auto;
+    width: 180px;
+    font-family: century gothic;
+    font-weight: bold;
+    background-color: #f0ccff;
+    border-color: black;
+    margin-top: 50px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 20px;
+    }
+
     </style>
 </head>
 <body>
@@ -89,49 +120,18 @@ h2 {
     </div>
 </div>
 <div class="h1">
-    <h2>Looking Good! Here is your Photo!</h2>
-    <h2 id="countdown">
+    <h2>Your limited viewing for the image has already expired!</h2>
+    <br>
+    <h3>But you can choose whether to go back in the welcome page or choose another template for another photo!</h3>
     <br><br>
 </div>
 
-<div id ="viewing" class = "showing">
-    
-<script>
-
-  const img = document.createElement('img');
-  //img.src = 'displayImage.php'; 
-
-  //must get the token from the recent taken picture
-  const token = new URLSearchParams(window.location.search).get('token'); //wala na ito, pero just to be sure
-  img.src = `displayImage.php?token=${token}`;
-  //size of the picture fetched
-  img.width = 300;
-  img.alt = "Your image";
-
-  document.getElementById('viewing').appendChild(img);
-
-const viewing = document.getElementById('viewing');
-const countDownTimer = document.getElementById('countdown');
-
-//timer of the picture to be view limited time
-let timeleft = 10;
-
-const timeout = setInterval(() => {
-    let minutes = Math.floor(timeleft /60);
-    let seconds = timeleft % 60;
-
-    countDownTimer.textContent = `You can only view this picture for ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
-
-    if (timeleft <=0) {
-    clearInterval(timeout);
-    countDownTimer.textContent = "Your access is expired, thank you for trying SnapBits.";
-    viewing.innerHTML = '';
-    window.location.href = "redirection.html";
-    }
-
-    timeleft--;
-
-}, 1000);
+<div class="container">
+  <div class="button-row">
+    <a href = "/SnapBits/welcome.html"><button>Go Back to Welcome Page</button></a>
+    <a href = "/SnapBits/ftemplate.html"><button>Take another picture!</button></a>
+  </div>
+</div>
 
 </script>
 
